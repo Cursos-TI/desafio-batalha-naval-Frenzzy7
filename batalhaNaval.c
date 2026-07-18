@@ -20,32 +20,56 @@ int tabuleiro[LINHAS][COLUNAS];
 
     int l_ver1 = 4, c_hor1 = 1;
         for(int k = 0; k < 3; k++){
-            tabuleiro[l_ver1 + k][c_hor1] = 3;
+            tabuleiro[l_ver1 + k][c_hor1];
+            int r = l_ver1 + k;
+            int c = c_hor1;
+        if (r >= 0 && r < LINHAS && c >= 0 && c < COLUNAS && tabuleiro[r][c] == 0) // validando posiçoes dos navios
+        {
+            tabuleiro[r][c] = 3;                        
         }
+    }
     // Navio 2 Horizontal
 
     int l_ver2 = 1, c_hor2 = 1;
         for(int k = 0; k < 3; k++){
-            tabuleiro[l_ver2][c_hor2 + k] = 3;
+            tabuleiro[l_ver2][c_hor2 + k];
+            int r = l_ver2;                    // r = row(linhas)
+            int c = c_hor2 + k;                // c = colunas
+        if (r >= 0 && r < LINHAS && c >= 0 && c < COLUNAS && tabuleiro[r][c] == 0) // validando posiçoes dos navios
+        {
+            tabuleiro[r][c] = 3;
         }
+    }
     // navio 3 Diagonal principal
 
     int l_diag1 = 4, c_diag1 = 4;
         for(int k = 0; k < 3; k++){
-            tabuleiro[l_diag1 + k][c_diag1 + k] = 3;
+            tabuleiro[l_diag1 + k][c_diag1 + k];
+            int r = l_diag1 + k;
+            int c = c_diag1 + k;
+        if (r >= 0 && r < LINHAS && c >= 0 && c < COLUNAS && tabuleiro[r][c] == 0) // validando posiçoes dos navios
+        {
+            tabuleiro [r][c] = 3;
         }
+    }
     // navio 4 diagonal secundaria
 
     int l_diag2 = 1, c_diag2 = 8;
         for(int k = 0; k < 3; k++){
-            tabuleiro[l_diag2 + k][c_diag2 - k] = 3;
+            tabuleiro[l_diag2 + k][c_diag2 - k];
+            int r = l_diag2 + k;
+            int c = c_diag2 - k;
+        if(r >= 0 && r < LINHAS && c >= 0 && c < COLUNAS && tabuleiro[r][c] == 0) // validando posiçoes dos navios
+        {  
+            tabuleiro[r][c] = 3;
         }
+    }
     // exibindo tabuleiro
 
     printf("   A B C D E F G H I J\n");
 
     for(int i = 0; i < LINHAS; i++){
-        printf("%d  ", i);
+        printf("%d  ", i);                     // linha para aparecer os numeros na lateral
             for(int j = 0; j < COLUNAS; j++){
                 printf("%d ",tabuleiro[i][j]);
             }
