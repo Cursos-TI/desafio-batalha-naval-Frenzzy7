@@ -1,43 +1,58 @@
 #include <stdio.h>
 
-int main() {
-    // 1. Definição do tabuleiro e variáveis
+#define LINHAS 10
+#define COLUNAS 10
 
-    int tabuleiro[10][10];
-    int i, j;
+int main(){
 
-    // 2. Inicialização
-    for (i = 0; i < 10; i++) {
-        for (j = 0; j < 10; j++) {
+int tabuleiro[LINHAS][COLUNAS];
+int linha_vertical = 2;
+int coluna_horizontal = 3;
+
+
+    for(int i = 0; i < LINHAS; i++){
+        for(int j = 0; j < COLUNAS; j++){
+
             tabuleiro[i][j] = 0;
         }
     }
+// 2 - Posicionar os navios
 
-    // 3. Posicionamento dos Navios
-    
-    // Navio 1 
-    tabuleiro[2][3] = 3;
-    tabuleiro[2][4] = 3;
-    tabuleiro[2][5] = 3;
+    //Navio 1 Vertical
 
-    // Navio 2: 
-    tabuleiro[5][7] = 3;
-    tabuleiro[6][7] = 3;
-    tabuleiro[7][7] = 3;
+    int l_ver1 = 4, c_hor1 = 1;
+        for(int k = 0; k < 3; k++){
+            tabuleiro[l_ver1 + k][c_hor1] = 3;
+        }
+    // Navio 2 Horizontal
+
+    int l_ver2 = 1, c_hor2 = 1;
+        for(int k = 0; k < 3; k++){
+            tabuleiro[l_ver2][c_hor2 + k] = 3;
+        }
+    // navio 3 Diagonal principal
+
+    int l_diag1 = 4, c_diag1 = 4;
+        for(int k = 0; k < 3; k++){
+            tabuleiro[l_diag1 + k][c_diag1 + k] = 3;
+        }
+    // navio 4 diagonal secundaria
+
+    int l_diag2 = 1, c_diag2 = 8;
+        for(int k = 0; k < 3; k++){
+            tabuleiro[l_diag2 + k][c_diag2 - k] = 3;
+        }
+    // exibindo tabuleiro
 
     printf("   A B C D E F G H I J\n");
 
-    for (i = 0; i < 10; i++) {
-        // Lateral (Números 1-10)
-        printf("%2d ", i + 1);
-
-        for (j = 0; j < 10; j++) {
-            printf("%d ", tabuleiro[i][j]);
-        }
-        
-        // Pula linha para a próxima fila do tabuleiro
+    for(int i = 0; i < LINHAS; i++){
+        printf("%d  ", i);
+            for(int j = 0; j < COLUNAS; j++){
+                printf("%d ",tabuleiro[i][j]);
+            }
         printf("\n");
     }
-
+    
     return 0;
 }
