@@ -6,8 +6,6 @@
 int main(){
 
 int tabuleiro[LINHAS][COLUNAS];
-int linha_vertical = 2;
-int coluna_horizontal = 3;
 
 
     for(int i = 0; i < LINHAS; i++){
